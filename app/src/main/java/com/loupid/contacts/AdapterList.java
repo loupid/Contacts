@@ -57,6 +57,20 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
             workPhone = itemView.findViewById(R.id.workphone);
             isCellDefault = itemView.findViewById(R.id.cellDefault);
             isWorkDefault = itemView.findViewById(R.id.workDefault);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    return false;
+                }
+            });
         }
     }
 }

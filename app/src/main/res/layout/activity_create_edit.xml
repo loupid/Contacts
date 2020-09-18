@@ -22,7 +22,8 @@
             android:layout_weight="1"
             android:gravity="center|start"
             android:text="@string/profile"
-            app:drawableStartCompat="@drawable/ic_profile" />
+            app:drawableStartCompat="@drawable/ic_profile"
+            tools:ignore="NestedWeights" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -72,7 +73,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="25dp"
             android:layout_weight=".7"
-            android:gravity="center|start">
+            android:gravity="center|start"
+            tools:ignore="NestedWeights">
 
             <TextView
                 android:id="@+id/textView7"
@@ -106,7 +108,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     android:layout_weight=".5"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights">
 
                     <EditText
                         android:id="@+id/editTextPhone"
@@ -179,15 +182,16 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Confimer" />
+            android:layout_weight=".5"
+            android:text="@string/confimer"
+            tools:ignore="NestedWeights" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Anuller" />
+            android:layout_weight=".5"
+            android:text="@string/anuller" />
     </LinearLayout>
 
 </LinearLayout>

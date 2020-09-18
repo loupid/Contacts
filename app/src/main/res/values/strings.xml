@@ -5,4 +5,12 @@
     <string name="fullname">FullName</string>
     <string name="cellphone">CellPhone</string>
     <string name="workphone">WorkPhone</string>
+    <string name="prenom">Prenom</string>
+    <string name="nom_de_famille">Nom de famille</string>
+    <string name="adresse_courriel">Adresse courriel</string>
+    <string name="profile">Profile</string>
+    <string name="cellulaire">Cellulaire</string>
+    <string name="travaille">Travaille</string>
+    <string name="t_l_phone">Téléphone</string>
+    <string name="d_faut">Défaut</string>
 </resources>

@@ -1,10 +1,10 @@
 package com.loupid.contacts;
 
-import android.content.Context;
-import android.mtp.MtpConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +29,12 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
+        holder.fullName.setText(contactList.get(position).getFullName());
+        holder.email.setText(contactList.get(position).getEmail());
+        holder.cellPhone.setText(contactList.get(position).getCellPhone());
+        holder.workPhone.setText(contactList.get(position).getWorkPhone());
+        holder.isCellDefault.setChecked(contactList.get(position).isCellPhoneDefault);
+        holder.isWorkDefault.setChecked(contactList.get(position).isWorkPhoneDefault);
     }
 
     @Override
@@ -37,10 +42,21 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
         return contactList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+        TextView fullName, email, cellPhone, workPhone;
+
+        RadioButton isCellDefault, isWorkDefault;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            fullName = itemView.findViewById(R.id.fullname);
+            email = itemView.findViewById(R.id.email);
+            cellPhone = itemView.findViewById(R.id.cellphone);
+            workPhone = itemView.findViewById(R.id.workphone);
+            isCellDefault = itemView.findViewById(R.id.cellDefault);
+            isWorkDefault = itemView.findViewById(R.id.workDefault);
         }
     }
 }

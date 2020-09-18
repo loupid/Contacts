@@ -1,15 +1,17 @@
 package com.loupid.contacts;
 
 public class Contact {
-    public String firstName, lastName, cellPhone, workPhone;
-    public boolean isCellPhoneDefault;
+    public String firstName, lastName, cellPhone, workPhone, email;
+    public boolean isCellPhoneDefault, isWorkPhoneDefault;
 
-    public Contact(String firstName, String lastName, String cellPhone, String workPhone, boolean isCellPhoneDefault) {
+    public Contact(String firstName, String lastName, String cellPhone, String workPhone, String email, boolean isCellPhoneDefault, boolean isWorkPhoneDefault) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.cellPhone = cellPhone;
         this.workPhone = workPhone;
+        this.email = email;
         this.isCellPhoneDefault = isCellPhoneDefault;
+        this.isWorkPhoneDefault = isWorkPhoneDefault;
     }
 
     public String getFirstName() {
@@ -44,11 +46,31 @@ public class Contact {
         this.workPhone = workPhone;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public boolean isCellPhoneDefault() {
         return isCellPhoneDefault;
     }
 
     public void setCellPhoneDefault(boolean cellPhoneDefault) {
         isCellPhoneDefault = cellPhoneDefault;
+    }
+
+    public boolean isWorkPhoneDefault() {
+        return isWorkPhoneDefault;
+    }
+
+    public void setWorkPhoneDefault(boolean workPhoneDefault) {
+        isWorkPhoneDefault = workPhoneDefault;
+    }
+
+    public String getFullName(){
+        return getFirstName() + " " + getLastName();
     }
 }

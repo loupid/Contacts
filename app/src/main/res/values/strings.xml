@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Contacts</string>
     <string name="liste_de_contacts">Liste de contacts</string>
+    <string name="email">Email</string>
+    <string name="fullname">FullName</string>
+    <string name="cellphone">CellPhone</string>
+    <string name="workphone">WorkPhone</string>
 </resources>

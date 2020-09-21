@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="25dp"
     tools:context=".CreateEdit">
 
     <LinearLayout
+        android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="#ffffff"
         android:orientation="vertical">
 
         <TextView
@@ -26,46 +29,49 @@
             tools:ignore="NestedWeights" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/editFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:gravity="center|start"
             android:hint="@string/prenom"
-            android:inputType="textPersonName"
-            android:autofillHints="" />
+            android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/editLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:gravity="center|start"
             android:hint="@string/nom_de_famille"
-            android:inputType="textPersonName"
-            android:autofillHints="" />
+            android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/adresse_courriel"
-            android:inputType="textEmailAddress"
-            android:autofillHints="" />
+            android:inputType="textEmailAddress" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/phone"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="#ffffff"
         android:orientation="vertical">
 
         <LinearLayout
@@ -81,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".2"
-                android:text="@string/t_l_phone"
+                android:text="@string/telephone"
                 app:drawableStartCompat="@drawable/ic_phone_section" />
 
             <TextView
@@ -89,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".8"
-                android:text="@string/d_faut" />
+                android:text="@string/defaut" />
         </LinearLayout>
 
         <LinearLayout
@@ -112,15 +118,15 @@
                     tools:ignore="NestedWeights">
 
                     <EditText
-                        android:id="@+id/editTextPhone"
+                        android:id="@+id/editCellPhone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableStart="@drawable/ic_phone"
                         android:ems="10"
                         android:hint="@string/cellulaire"
-                        android:inputType="phone"
-                        android:importantForAutofill="no" />
+                        android:importantForAutofill="no"
+                        android:inputType="phone" />
 
                 </LinearLayout>
 
@@ -132,15 +138,15 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextPhone2"
+                        android:id="@+id/editWorkPhone"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:autofillHints=""
                         android:drawableStart="@drawable/ic_phone"
                         android:ems="10"
                         android:hint="@string/travaille"
-                        android:inputType="phone"
-                        android:autofillHints="" />
+                        android:inputType="phone" />
 
                 </LinearLayout>
 
@@ -153,14 +159,14 @@
                 android:layout_weight=".8">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/isCellDefault"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
                     android:layout_weight=".5" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/isWorkDefault"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="15dp"
@@ -172,26 +178,32 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/button"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
         android:layout_weight="1"
+        android:background="#ffffff"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/confirm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight=".5"
+            android:background="#FFFFFF"
             android:text="@string/confimer"
-            tools:ignore="NestedWeights" />
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight=".5"
-            android:text="@string/anuller" />
+            android:background="#FFFFFF"
+            android:text="@string/annuler"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
 </LinearLayout>

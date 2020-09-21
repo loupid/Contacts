@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         contactList = getContactList();
 
-        adapterList = new AdapterList(contactList);
+        adapterList = new AdapterList(contactList, this);
 
         recyclerView.setAdapter(adapterList);
     }

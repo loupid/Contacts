@@ -11,8 +11,8 @@
     <string name="profile">Profile</string>
     <string name="cellulaire">Cellulaire</string>
     <string name="travaille">Travaille</string>
-    <string name="t_l_phone">Téléphone</string>
-    <string name="d_faut">Défaut</string>
+    <string name="telephone">Téléphone</string>
+    <string name="defaut">Défaut</string>
     <string name="confimer">Confimer</string>
-    <string name="anuller">Anuller</string>
+    <string name="annuler">Annuler</string>
 </resources>

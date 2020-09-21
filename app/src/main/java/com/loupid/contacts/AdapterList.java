@@ -1,5 +1,9 @@
 package com.loupid.contacts;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +13,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.transition.MaterialContainerTransform;
+
 import java.util.List;
 
 public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> {
      List<Contact> contactList;
+     Context context;
 
-    public AdapterList(List<Contact> contactList) {
+    public AdapterList(List<Contact> contactList, Context context) {
         this.contactList = contactList;
+        this.context = context;
     }
 
     @NonNull
@@ -24,7 +32,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.contact, parent, false);
 
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, this);
     }
 
     @Override
@@ -42,13 +50,18 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
         return contactList.size();
     }
 
+    public void addContact(Contact contact){
+        contactList.add(contact);
+        notifyItemInserted(contactList.size()-1);
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView fullName, email, cellPhone, workPhone;
 
         RadioButton isCellDefault, isWorkDefault;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, final AdapterList adapterList) {
             super(itemView);
 
             fullName = itemView.findViewById(R.id.fullname);
@@ -61,13 +74,18 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Contact contact = adapterList.contactList.get(getLayoutPosition());
 
+                    Intent intent = new Intent(adapterList.context, CreateEdit.class);
+
+                    adapterList.context.startActivity(intent);
                 }
             });
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
+
                     return false;
                 }
             });

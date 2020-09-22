@@ -3,8 +3,7 @@ package com.loupid.contacts;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.preference.PreferenceManager;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.transition.MaterialContainerTransform;
-
-import java.io.Serializable;
 import java.util.List;
 
 public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> {

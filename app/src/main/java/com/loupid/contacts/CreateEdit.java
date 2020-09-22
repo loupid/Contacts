@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class CreateEdit extends AppCompatActivity {
 
     TextView firstname, lastname, email, cellPhone, workPhone;
@@ -24,6 +26,8 @@ public class CreateEdit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_edit);
 
+        int position = 0;
+
         firstname = findViewById(R.id.editFirstName);
         lastname = findViewById(R.id.editLastName);
         email = findViewById(R.id.editEmail);
@@ -38,6 +42,7 @@ public class CreateEdit extends AppCompatActivity {
         Contact contact;
 
         if (getIntent().hasExtra("contact")){
+            position = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("position")));
             contact = getIntent().getParcelableExtra("contact");
             isCreate = false;
 
@@ -61,11 +66,14 @@ public class CreateEdit extends AppCompatActivity {
                 isWorkDefault.isChecked());
 
         final Contact finalContact = contact;
+        final int finalPosition = position;
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.putExtra("newContact", finalContact);
+                intent.putExtra("position", finalPosition);
                 setResult(RESULT_OK, intent);
                 finish();
             }

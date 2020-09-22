@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,9 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
         notifyItemInserted(contactList.size()-1);
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView fullName, email, cellPhone, workPhone;
 
@@ -81,7 +84,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
 
                     intent.putExtra("contact", contact);
 
-                    adapterList.context.startActivity(intent);
+                    ((Activity) context).startActivityForResult(intent, 11);
                 }
             });
 
@@ -92,6 +95,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
                     return false;
                 }
             });
+
         }
     }
 }

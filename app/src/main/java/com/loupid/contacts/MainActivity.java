@@ -1,5 +1,6 @@
 package com.loupid.contacts;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.ResultReceiver;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,10 +46,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CreateEdit.class);
-                startActivity(intent);
+                startActivityForResult(intent, 22);
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 11){
+            if (resultCode == RESULT_OK){
+                Contact contact = data.getParcelableExtra("newContact");
+            }
+        }
+        else if (requestCode == 22){
+            if (resultCode == RESULT_OK){
+
+            }
+        }
     }
 
     private List<Contact> getContactList(){

@@ -2,6 +2,7 @@ package com.loupid.contacts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,7 @@ public class CreateEdit extends AppCompatActivity {
         Contact contact;
 
         if (getIntent().hasExtra("contact")){
-            position = Integer.parseInt(Objects.requireNonNull(getIntent().getStringExtra("position")));
+            position = getIntent().getIntExtra("position",-1);
             contact = getIntent().getParcelableExtra("contact");
             isCreate = false;
 
@@ -56,24 +57,23 @@ public class CreateEdit extends AppCompatActivity {
                 isWorkDefault.setChecked(contact.isWorkPhoneDefault());
             }
         }
-
-        contact = new Contact(firstname.getText().toString(),
-                lastname.getText().toString(),
-                cellPhone.getText().toString(),
-                workPhone.getText().toString(),
-                email.getText().toString(),
-                isCellDefault.isChecked(),
-                isWorkDefault.isChecked());
-
-        final Contact finalContact = contact;
         final int finalPosition = position;
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                Contact finalContact = new Contact(firstname.getText().toString(),
+                        lastname.getText().toString(),
+                        cellPhone.getText().toString(),
+                        workPhone.getText().toString(),
+                        email.getText().toString(),
+                        isCellDefault.isChecked(),
+                        isWorkDefault.isChecked());
                 intent.putExtra("newContact", finalContact);
-                intent.putExtra("position", finalPosition);
+                if (finalPosition > -1 ) {
+                    intent.putExtra("position", finalPosition);
+                }
                 setResult(RESULT_OK, intent);
                 finish();
             }

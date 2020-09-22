@@ -59,11 +59,14 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 11){
             if (resultCode == RESULT_OK){
                 Contact contact = data.getParcelableExtra("newContact");
+                int postion = data.getIntExtra("position", -1);
+                adapterList.modifyContact(postion, contact);
             }
         }
         else if (requestCode == 22){
             if (resultCode == RESULT_OK){
-
+                Contact contact = data.getParcelableExtra("newContact");
+                adapterList.addContact(contact);
             }
         }
     }

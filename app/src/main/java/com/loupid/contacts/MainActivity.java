@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
 
-        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, CreateEdit.class);
-                startActivity(intent);
-            }
-        });
-
         recyclerView = findViewById(R.id.recycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,6 +38,16 @@ public class MainActivity extends AppCompatActivity {
         adapterList = new AdapterList(contactList, this);
 
         recyclerView.setAdapter(adapterList);
+
+        FloatingActionButton floatingActionButton = findViewById(R.id.fab);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CreateEdit.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private List<Contact> getContactList(){

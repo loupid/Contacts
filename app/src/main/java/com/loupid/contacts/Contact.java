@@ -1,6 +1,11 @@
 package com.loupid.contacts;
 
-public class Contact {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Contact implements Parcelable {
     public String firstName, lastName, cellPhone, workPhone, email;
     public boolean isCellPhoneDefault, isWorkPhoneDefault;
 
@@ -13,6 +18,28 @@ public class Contact {
         this.isCellPhoneDefault = isCellPhoneDefault;
         this.isWorkPhoneDefault = isWorkPhoneDefault;
     }
+
+    protected Contact(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        cellPhone = in.readString();
+        workPhone = in.readString();
+        email = in.readString();
+        isCellPhoneDefault = in.readByte() != 0;
+        isWorkPhoneDefault = in.readByte() != 0;
+    }
+
+    public static final Creator<Contact> CREATOR = new Creator<Contact>() {
+        @Override
+        public Contact createFromParcel(Parcel in) {
+            return new Contact(in);
+        }
+
+        @Override
+        public Contact[] newArray(int size) {
+            return new Contact[size];
+        }
+    };
 
     public String getFirstName() {
         return firstName;
@@ -73,4 +100,22 @@ public class Contact {
     public String getFullName(){
         return getFirstName() + " " + getLastName();
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(cellPhone);
+        dest.writeString(workPhone);
+        dest.writeString(email);
+        dest.writeByte((byte) (isCellPhoneDefault ? 1 : 0));
+        dest.writeByte((byte) (isWorkPhoneDefault ? 1 : 0));
+    }
+
+
 }

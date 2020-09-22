@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.transition.MaterialContainerTransform;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> {
@@ -77,6 +78,8 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
                     Contact contact = adapterList.contactList.get(getLayoutPosition());
 
                     Intent intent = new Intent(adapterList.context, CreateEdit.class);
+
+                    intent.putExtra("contact", contact);
 
                     adapterList.context.startActivity(intent);
                 }

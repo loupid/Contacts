@@ -66,7 +66,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView fullName, email, cellPhone, workPhone;
 
@@ -92,7 +92,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
                     intent.putExtra("contact", contact);
                     intent.putExtra("position", getLayoutPosition());
 
-                    ((Activity) context).startActivityForResult(intent, 11);
+                    ((Activity) adapterList.context).startActivityForResult(intent, 11);
                 }
             });
 

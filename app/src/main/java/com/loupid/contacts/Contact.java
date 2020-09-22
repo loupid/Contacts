@@ -3,8 +3,6 @@ package com.loupid.contacts;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 public class Contact implements Parcelable {
     public String firstName, lastName, cellPhone, workPhone, email;
     public boolean isCellPhoneDefault, isWorkPhoneDefault;
@@ -18,6 +16,7 @@ public class Contact implements Parcelable {
         this.isCellPhoneDefault = isCellPhoneDefault;
         this.isWorkPhoneDefault = isWorkPhoneDefault;
     }
+
 
     protected Contact(Parcel in) {
         firstName = in.readString();

@@ -154,9 +154,9 @@ public class CreateEdit extends AppCompatActivity {
                     workPhone.setError(null);
                 }
 
-                if (!(isCellDefault.isChecked() || isWorkDefault.isChecked())){
+                if (!isCellDefault.isChecked() && !isWorkDefault.isChecked()) {
                     isdefault.setError("Veillez choisir le téléphone par défaut");
-                }else {
+                } else {
                     isdefault.setError(null);
                 }
 
